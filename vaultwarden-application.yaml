@@ -15,7 +15,7 @@ spec:
         domain: https://warden.contoso.com:8443
         database:
           type: postgresql
-          existingSecret: postgres-creds-restored
+          existingSecret: postgres-creds
           existingSecretKey: POSTGRESQL_URL
   destination:
     server: "https://kubernetes.default.svc"
