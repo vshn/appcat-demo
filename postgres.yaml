@@ -6,7 +6,7 @@ metadata:
 spec:
   parameters:
     backup:
-      deletionProtection: false
+      deletionProtection: true
       deletionRetention: 7
       retention: 6
       schedule: "* * * * *"
@@ -19,7 +19,7 @@ spec:
         - 0.0.0.0/0
       serviceType: ClusterIP
     service:
-      majorVersion: "12"
+      majorVersion: "15"
       pgSettings:
         timezone: Europe/Zurich
       serviceLevel: besteffort
