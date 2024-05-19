@@ -6,7 +6,7 @@ metadata:
 spec:
   restore:
     claimName: my-vaultwarden-postgres
-    backupName: my-vaultwarden-postgres-75mdd-2024-05-19-11-41-00
+    backupName: my-vaultwarden-postgres-6pqrv-2024-05-19-12-18-00
   parameters:
     backup:
       deletionProtection: true
