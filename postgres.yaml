@@ -1,0 +1,29 @@
+apiVersion: vshn.appcat.vshn.io/v1
+kind: VSHNPostgreSQL
+metadata:
+  name: my-vaultwarden-postgres
+  namespace: my-vaultwarden
+spec:
+  parameters:
+    backup:
+      deletionProtection: false
+      deletionRetention: 7
+      retention: 6
+      schedule: "* * * * *"
+    instances: 1
+    maintenance:
+      dayOfWeek: tuesday
+      timeOfDay: "23:00:00"
+    network:
+      ipFilter:
+        - 0.0.0.0/0
+      serviceType: ClusterIP
+    service:
+      majorVersion: "12"
+      pgSettings:
+        timezone: Europe/Zurich
+      serviceLevel: besteffort
+    updateStrategy:
+      type: Immediate
+  writeConnectionSecretToRef:
+    name: postgres-creds
