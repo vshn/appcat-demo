@@ -8,8 +8,6 @@ spec:
     instances: 1
     service:
       majorVersion: "15"
-      serviceLevel: besteffort
-      repackEnabled: true
     backup:
       schedule: "* * * * *"
       deletionProtection: true
