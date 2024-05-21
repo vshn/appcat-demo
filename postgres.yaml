@@ -5,24 +5,14 @@ metadata:
   namespace: my-vaultwarden
 spec:
   parameters:
-    backup:
-      deletionProtection: true
-      deletionRetention: 7
-      retention: 6
-      schedule: "* * * * *"
     instances: 1
-    maintenance:
-      dayOfWeek: tuesday
-      timeOfDay: "23:00:00"
-    network:
-      ipFilter:
-        - 0.0.0.0/0
-      serviceType: ClusterIP
     service:
       majorVersion: "15"
-      pgSettings:
-        timezone: Europe/Zurich
       serviceLevel: besteffort
+      repackEnabled: true
+    backup:
+      schedule: "* * * * *"
+      deletionProtection: true
     updateStrategy:
       type: Immediate
   writeConnectionSecretToRef:
