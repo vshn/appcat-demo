@@ -1,0 +1,22 @@
+apiVersion: vshn.appcat.vshn.io/v1
+kind: VSHNPostgreSQL
+metadata:
+  name: my-vaultwarden-postgres-r
+  namespace: my-vaultwarden
+spec:
+  parameters:
+    restore:
+      claimName: my-vaultwarden-postgres
+      backupName: my-vaultwarden-postgres-9t9tv-2024-05-22-11-46-00
+    instances: 1
+    service:
+      majorVersion: "15"
+    backup:
+      schedule: "* * * * *"
+      deletionProtection: true
+    updateStrategy:
+      type: Immediate
+  writeConnectionSecretToRef:
+    name: postgres-creds-r
+  compositionRef:
+    name: vshnpostgresrestore.vshn.appcat.vshn.io
